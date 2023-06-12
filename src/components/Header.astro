@@ -1,0 +1,111 @@
+---
+
+
+---
+<header>
+    <div class="header-content container">
+        <p>Logo</p>
+        <a class="icon">O</a>
+        <nav>
+            <a href="/" class="nav-element">Home</a>
+            <a href="/about" class="nav-element">About</a>
+            <a href="/contact" class="nav-element">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<style>
+    header{
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        background-color: black;
+        z-index: 9;
+    }
+    .header-content{
+        height: 75px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .icon{
+
+    }
+    nav{
+        background-color: blue;
+        position: absolute;
+        height: calc(100vh - 150px);
+        padding-top: 50px;
+        margin-top: calc(100vh - 75px);
+        transform:translateX(-100%);
+        z-index: 9;
+        
+    }
+    .nav-element{
+        display: block;
+        margin-bottom: 1em;
+        width: 100%;
+        text-align: center;
+        padding: 2em 0;
+        transition: .4s;
+        text-decoration: none;
+    }
+    .nav-element:hover{
+        background-color: aliceblue;
+        color: black;
+        transition: .3s;
+    }
+    .expand-nav-element{
+        transform: translateX(0);
+        width: 100%;
+        transition: .4s ease-in-out;
+    }
+
+
+    @media(min-width: 640px){
+        .header-content{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .icon{
+            display: none;
+        }
+        nav{
+            position: unset;
+            height: unset;
+            width: unset;
+            padding: unset;
+            margin: unset;
+            transform: translateX(0px);
+        }
+        .nav-element{
+            margin: unset;
+            display: unset;
+            padding: unset;
+            text-align: unset;
+            width: unset;
+            transition: unset;
+            
+        }
+        .nav-element:hover{
+            text-decoration: underline;
+            background-color: unset;
+            color: white;
+            
+        }
+        .expand-nav-element{
+            width: unset;
+            transition: unset;
+        }
+    }
+    
+    
+</style>
+
+<script>
+    document.querySelector(".icon").addEventListener("click", ()=>{
+        const navEl = document.querySelector("nav")
+        navEl.classList.toggle("expand-nav-element")
+    })
+</script>
